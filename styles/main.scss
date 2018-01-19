@@ -1,0 +1,250 @@
+
+
+@import 'normalize';
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+$bubble-size: 3em;
+$color-0: #C3E6DD;
+$color-12: #FFE0B7;
+$color-20: #FEFFBE;
+$color-4: #C9ECF4;
+$color-1: #fce3ed;
+$color-8: #fff4cb;
+$color-10: #E2F8FD;
+$color-5: #C8EFD4;
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #FFF;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.haiku {
+  display: block;
+  text-transform: uppercase;
+  font-size: 24px;
+  letter-spacing: .5px;
+  text-align: center;
+  opacity: .8;
+  padding: 2em;
+  // background-color: rgb(255, 255, 255);
+  // box-shadow: 0 0 20em rgb(255, 255, 255);
+}
+
+.haiku-link {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  opacity: .5;
+}
+
+.bubble-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  animation: bubble-fade-in 10s;
+}
+
+@keyframes bubble-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.bubble {
+  position: absolute;
+
+  height: $bubble-size;
+  width: $bubble-size;
+  border-radius: 100%;
+  background-color: rgb(158, 158, 158);
+  cursor: pointer;
+  opacity: 1;
+  animation: bubble-move 5s infinite;
+  transition: 250ms ease;
+  &:hover {
+    opacity: .7;
+    //transform: scale(1.2);
+  }
+}
+
+@keyframes bubble-move {
+  from { transform: rotate(0deg) translateX(1em) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(1em) rotate(-360deg); }
+  // 0%, 100% {
+  //   transform: translateX(0);
+  // }
+  // 50% {
+  //   transform: translateX(2em);
+  // }
+}
+
+.bubble-0 {
+  top: 10%;
+  left: 40%;
+  animation-delay: 50ms;
+
+  background-color: $color-0;
+}
+
+.bubble-12 {
+  top: 30%;
+  left: 90%;
+  animation-delay: 300ms;
+  background-color: $color-12;
+}
+
+.bubble-20 {
+  top: 15%;
+  left: 12%;
+  animation-delay: 120ms;
+  background-color: $color-20;
+}
+
+.bubble-4 {
+  top: 53%;
+  left: 4%;
+  animation-delay: 860ms;
+  background-color: $color-4;
+}
+
+.bubble-1 {
+  top: 75%;
+  left: 50%;
+  animation-delay: 210ms;
+  background-color: $color-1;
+}
+
+.bubble-8 {
+  top: 70%;
+  left: 78%;
+  animation-delay: 1000ms;
+  background-color: $color-8;
+}
+
+.bubble-10 {
+  top: 83%;
+  left: 32%;
+  animation-delay: 620ms;
+  background-color: $color-10;
+}
+
+.bubble-5 {
+  top: 25%;
+  left: 70%;
+  animation-delay: 350ms;
+  background-color: $color-5;
+}
+
+.haiku-page {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+
+  background-color: rgb(255, 239, 241);
+  top: 0;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 600ms ease;
+
+  &.haiku-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.haiku-0 {
+  background-color: $color-0;
+}
+
+.haiku-12 {
+  background-color: $color-12;
+}
+
+.haiku-20 {
+  background-color: $color-20;
+}
+
+.haiku-4 {
+  background-color: $color-4;
+}
+
+.haiku-1 {
+  background-color: $color-1;
+}
+
+.haiku-8 {
+  background-color: $color-8;
+}
+
+.haiku-10 {
+  background-color: $color-10;
+}
+
+.haiku-5 {
+  background-color: $color-5;
+}
+
+.video-container {
+  position: absolute;
+  left: calc(50% - 320px);
+  top: calc(50% - 180px);
+  z-index: 100;
+
+  width: 640px;
+  height: 360px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 600ms ease;
+
+  &.video-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.back-btn {
+  position: absolute;
+  left: calc(50% - 1.5em);
+  top: 110%;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  //color: #FFFFFF;
+  line-height: $bubble-size;
+  height: $bubble-size;
+  width: $bubble-size;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.four-videos {
+  display: flex;
+  justify-content: center;
+}
+
+video {
+  display: inline-block;
+  width: 320px;
+  height: 180px;
+}
+
